@@ -13,8 +13,9 @@ public class Deck {
     
     private Card[] myCards = new Card[52];
     private int nextCard = 0;
-    private String[] ranks = {};
-    private String[] suits = {};
+    private String[] ranks = {"Ace","2","3","4","5","6","7","8","9","10"
+                                ,"Jack","Queen","King"};
+    private String[] suits = {"Clubs","Diamonds","Hearts","Spades"};
     
     public Deck(){
         initDeck();
@@ -23,7 +24,12 @@ public class Deck {
     }
 
     private void initDeck() {
-        
+        int i = 0;
+        for(int s = 0; s < suits.length; s++)
+            for(int r = 0; r < ranks.length; r++){
+                myCards[i] = new Card(ranks[r],suits[s]);
+                i++;
+            }
     }
 
     private void shuffle() {
