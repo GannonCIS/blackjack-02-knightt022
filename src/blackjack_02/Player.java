@@ -18,7 +18,7 @@ public class Player {
     }
     
     public Player(int playerNum){
-        name = "Player" + playerNum;
+        name = "Player " + playerNum;
     }
     
     public Hand getMyHand(){
