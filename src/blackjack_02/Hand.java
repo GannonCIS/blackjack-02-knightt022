@@ -18,9 +18,24 @@ public class Hand {
     public Hand(){}
     
     public void addCard(Card newCard){
-        
+        if(numOfCards < 5){
+            myCards[numOfCards] =newCard;
+            numOfCards++;
+            
+            try{
+               score += Integer.parseInt(newCard.RANK); 
+            }catch(java.lang.NumberFormatException ex){
+                if(newCard.RANK.equals("Ace")){
+                    score += 1;
+                }else{
+                    score +=10;
+                }
+            }
+        }else{
+            System.out.println("Thats to many cards... out of bounds!!!"
+                    + " Check Hand class line 21");
+        }
     }
-    
     public int getScore(){
         return score;
     }
@@ -30,7 +45,9 @@ public class Hand {
     }
     
     public void printHand(){
-        
+        for(int i = 0; i < numOfCards; i++){
+            System.out.println(myCards[i].RANK + " of " + myCards[i].SUIT);
+        }
     }
     
 }

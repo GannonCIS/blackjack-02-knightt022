@@ -19,7 +19,7 @@ public class Deck {
     
     public Deck(){
         initDeck();
-        //shuffle();
+        shuffle();
         
     }
 
