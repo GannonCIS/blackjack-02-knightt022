@@ -40,7 +40,21 @@ public class Dealer {
     }
     
     public void playOutPlayerHands(){
-        
+        for(Player currPlayer : myPlayers){
+            System.out.println("\n" + currPlayer.getName() + "'s Hand");
+            currPlayer.getMyHand().printHand();
+            while(currPlayer.getMyHand().getNumOfCards() < 5 &&
+                    currPlayer.getMyHand().getScore() < 21){
+                System.out.println(currPlayer.getName() + " Wanna hit? (y/n)");
+                char opt = scan.next().toLowerCase().charAt(0);
+                if(opt=='y'){
+                    currPlayer.getMyHand().addCard(myDeck.dealCard());
+                }else{
+                    break;
+                }
+                currPlayer.getMyHand().printHand();
+            }
+        }
     }
     
     public void playOutDealerHand(){
