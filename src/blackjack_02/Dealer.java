@@ -31,7 +31,12 @@ public class Dealer {
     }
     
     public void dealOutOpeningHand(){
-        
+        for(int i = 0; i < 2; i++){
+            for(Player currPlayer : myPlayers){
+                currPlayer.getMyHand().addCard(myDeck.dealCard());
+            }
+            dealerHand.addCard(myDeck.dealCard());
+        }
     }
     
     public void playOutPlayerHands(){
@@ -42,14 +47,14 @@ public class Dealer {
         
     }
     
-    public void declarWinners(){
+    public void declareWinners(){
         
     }
     
     private void initPlayers(int numOfPlayers){
        myPlayers = new Player[numOfPlayers];
         for(int i = 0; i < myPlayers.length; i++){
-            System.out.println("Player " + i+1 + "whats your name?");
+            System.out.println("Player " + (i+1) + " whats your name?");
             String name = scan.next();
             if(name.equals("")){
                 myPlayers[i]= new Player(i+1);
