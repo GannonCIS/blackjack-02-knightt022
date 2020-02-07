@@ -17,7 +17,7 @@ public class BlackJack_02 {
     public static void main(String[] args) {
        Dealer fred = new Dealer();
        fred.dealOutOpeningHand();
-       fred.playOutPlayerHands();
+       fred.playOutDealerHand();
     }
     
 }

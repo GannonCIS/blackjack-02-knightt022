@@ -58,7 +58,11 @@ public class Dealer {
     }
     
     public void playOutDealerHand(){
-        
+        while(dealerHand.getScore() < 16 && dealerHand.getNumOfCards() < 5){
+            dealerHand.addCard(myDeck.dealCard());
+        }
+        System.out.println("Dealers Hand");
+        dealerHand.printHand();
     }
     
     public void declareWinners(){
